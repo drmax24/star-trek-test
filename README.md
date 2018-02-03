@@ -1,7 +1,6 @@
 ## Introduction
 Hello. Thank you for the opportunity to solve this task. It was much simpler than I expected. I thought I will have to write a real language translator.
 I can make such tasks in 4 hours no problem if we exclude tests and documentation.
-Though I think the task is good and among other things it also checks attention and an ability to understand the problem correctly.
 
 ## Installation
 You will need to have php 7.1 to run this.
@@ -49,3 +48,6 @@ Code that handles CLI call
 KlingonTranslation and Stapi have separate Service classes to solve their specific tasks.
 ```app/Services/KlingonTranslationService.php```
 ```app/Services/StapiService.php```
+
+## PS:
+The task was interresting! Among other things it also checks attention and an ability to understand the problem correctly I think.
