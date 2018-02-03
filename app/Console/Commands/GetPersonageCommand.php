@@ -13,7 +13,7 @@ class GetPersonage extends Command
      *
      * @var string
      */
-    protected $signature = 'star-trek:get-personage {name}';
+    protected $signature = 'star-trek:get-personage {name} {--debug-sapi}';
 
     /**
      * The console command description.
@@ -40,7 +40,9 @@ class GetPersonage extends Command
     public function handle()
     {
         $out = '';
-        $plaqdNameChars = (new  KlingonTranslationService())->engToKlingon($this->argument('name'));
+        $translationService = new  KlingonTranslationService();
+        $plaqdNameChars = $translationService->engToKlingon($this->argument('name'));
+
         $charCount = count($plaqdNameChars);
         foreach ($plaqdNameChars as $k => $v) {
             $out .= '0x' . dechex(unicode_keys($v));
@@ -50,9 +52,17 @@ class GetPersonage extends Command
         }
         $out .= "\n";
 
-        $character = (new  StapiService())->getCharacter($this->argument('name'));
-        if (isset($character->species)) {
-            $out .= $character->species;
+
+        $sapiService = new  StapiService();
+        $character = $sapiService->getCharacter($this->argument('name'));
+
+
+        if (!$this->option('debug-sapi')) {
+            if (isset($character['characterSpecies'][0]['name'])) {
+                $out .= $character['characterSpecies'][0]['name'];
+            }
+        } else {
+            $out .= print_r($character, true);
         }
 
 
