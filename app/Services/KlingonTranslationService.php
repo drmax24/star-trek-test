@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Exceptions\BadInputException;
+use Mockery\Exception;
+
 class KlingonTranslationService
 {
 
@@ -51,7 +54,7 @@ class KlingonTranslationService
             if ($k != 'Q') {
                 $k = strtolower($k);
             }
-            $this->transliterationMapUtf[$k] = \unichr($v);
+            $this->transliterationMapUtf[$k] = unichr($v);
         }
     }
 
@@ -60,21 +63,31 @@ class KlingonTranslationService
      * Return indexes of pIqaD unicode chars
      * @return string
      */
-    public function engToKlingon(string $string): array
+    public function engToKlingon(string $string, $isStrict = true): array
     {
-        $string = strtolower($string);
+        //
+        $string = preg_replace_callback('/([A-PR-Z])/', function ($word) {
+            return strtolower($word[1]);
+        }, $string);
+
+
         $out = str_replace(array_keys($this->transliterationMapUtf),
             $this->transliterationMapUtf,
             $string
         );
 
         $chars = preg_split('//u', $out, -1, PREG_SPLIT_NO_EMPTY);
-        foreach ($chars as $v) {
+        foreach ($chars as $k => $v) {
             if (!in_array($v, $this->transliterationMapUtf)) {
-                dd($v);
+                if ($isStrict) {
+                    throw new BadInputException();
+                } else {
+                    unset($chars[$k]);
+                }
             }
         }
 
+        array_values($chars);
 
         return $chars;
     }
