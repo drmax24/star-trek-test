@@ -26,11 +26,15 @@ class GetCharacterTest extends TestCase
     public function testBasicTest()
     {
         $result = $this->artisanRead("star-trek:get-character", ["name" => 'Uhura']);
-        $this->assertEquals("0xf8e5 0xf8d6 0xf8e5 0xf8e1 0xf8d0\nHuman", $result);
+        $this->assertEquals("0xF8E5 0xF8D6 0xF8E5 0xF8E1 0xF8D0\nHuman", $result);
 
         // 19 chars
         $result = $this->artisanRead("star-trek:get-character", ["name" => 'Van der Waals ghost']);
         // 18 chars, empty line for the race
-        $this->assertEquals("0xf8e6 0xf8d0 0xf8db 0x0020 0xf8d3 0xf8d4 0xf8e1 0x0020 0xf8e7 0xf8d0 0xf8d0 0xf8d9 0xf8e2 0x0020 0xf8d5 0xf8dd 0xf8e2 0xf8e3", $result);
+        $this->assertEquals("0xF8E6 0xF8D0 0xF8DB 0x0020 0xF8D3 0xF8D4 0xF8E1 0x0020 0xF8E7 0xF8D0 0xF8D0 0xF8D9 0xF8E2 0x0020 0xF8D5 0xF8DD 0xF8E2 0xF8E3", $result);
+
+
+        $result = $this->artisanRead("star-trek:get-character", ["name" => 'Q']);
+        $this->assertEquals("0xF8E0\nQ", $result);
     }
 }

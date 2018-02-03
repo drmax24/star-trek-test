@@ -48,7 +48,7 @@ class GetCharacterCommand extends Command
 
         $charCount = count($plaqdNameChars);
         foreach ($plaqdNameChars as $k => $v) {
-            $hexRepresentation = dechex(unicode_keys($v));
+            $hexRepresentation = strtoupper(dechex(unicode_keys($v)));
             if (strlen($hexRepresentation) == 3) {
                 $hexRepresentation = '0'.$hexRepresentation;
             }
