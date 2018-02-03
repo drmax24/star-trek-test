@@ -38,6 +38,20 @@ class KlingonTranslationService
         'y' => 0xF8E8,
         '’' => 0xF8E9,
 
+        '0' => 0xF8F0,
+        '1' => 0xF8F1,
+        '2' => 0xF8F2,
+        '3' => 0xF8F3,
+        '4' => 0xF8F4,
+        '5' => 0xF8F5,
+        '6' => 0xF8F6,
+        '7' => 0xF8F7,
+        '8' => 0xF8F8,
+        '9' => 0xF8F9,
+
+        ',' => 0xF8FD,
+        '.' => 0xF8FE,
+
         ' ' => 0x0020,
     ];
 
