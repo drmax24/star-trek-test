@@ -1,7 +1,7 @@
 <?php
 
 
-function uniord($c)
+function unicode_keys($c)
 {
     if (ord($c{0}) >= 0 && ord($c{0}) <= 127)
         return ord($c{0});

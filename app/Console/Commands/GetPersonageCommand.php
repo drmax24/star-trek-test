@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\StapiService;
 use Illuminate\Console\Command;
 use App\Services\KlingonTranslationService;
 
@@ -39,15 +40,24 @@ class GetPersonage extends Command
     public function handle()
     {
         $out = '';
-        $chars = (new  KlingonTranslationService())->engToKlingon($this->argument('name'));
-        $charCount = count($chars);
-        foreach ($chars as $k => $v) {
-            $out .= '0x' . dechex(uniord($v));
+        $plaqdNameChars = (new  KlingonTranslationService())->engToKlingon($this->argument('name'));
+        $charCount = count($plaqdNameChars);
+        foreach ($plaqdNameChars as $k => $v) {
+            $out .= '0x' . dechex(unicode_keys($v));
             if ($k < $charCount - 1) {
                 $out .= ' ';
             }
         }
+        $out .= "\n";
 
-        echo $out . "\n";
+        $character = (new  StapiService())->getCharacter($this->argument('name'));
+        if (isset($character->species)) {
+            $out .= $character->species;
+        }
+
+
+        $out .= "\n";
+
+        echo $out;
     }
 }
