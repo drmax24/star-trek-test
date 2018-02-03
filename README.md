@@ -1,5 +1,5 @@
 ## Introduction
-Hi guys. Thank you for the opportunity to solve this task. It was much simpler than I expected. I thought I will have to write a real language translator.
+Hello. Thank you for the opportunity to solve this task. It was much simpler than I expected. I thought I will have to write a real language translator.
 I can make such tasks in 4 hours no problem. +1 hour on unit tests. +1 hour on docs.
 Though I think the task is good and among other things it also checks attention and an ability to understand the problem correctly.
 
