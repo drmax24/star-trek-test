@@ -1,6 +1,6 @@
 ## Introduction
 Hello. Thank you for the opportunity to solve this task. It was much simpler than I expected. I thought I will have to write a real language translator.
-I can make such tasks in 4 hours no problem if we exclude tests and documentation.
+I can make such tasks in 4 hours if we exclude tests and documentation.
 
 ## Installation
 You will need to have php 7.1 to run this.
