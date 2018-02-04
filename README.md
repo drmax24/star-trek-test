@@ -24,7 +24,7 @@ Use quotes if you need to pass a name containing whitespaces.
 ### --strict-transliteration
 >>Some letters are missing which means they are not translatable for this test purposes, then ignore the whole input.
 
-If you use this flag you will get empty line for plaqD transliteration if provided name has any unknow characters
+If you use this flag you will get empty line for plaqD transliteration if provided name has at least one unknown character
 ```php artisan star-trek:get-character --strict-transliteration "Pavel Chekov"```
 
 Will delete unknown characters before processing  
