@@ -17,7 +17,9 @@ https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
 
 ## Running the application
 ### Basic example
-```php artisan star-trek:get-character Uhura```
+```php artisan star-trek:get-character Uhura```  
+
+Use quotes if you need to pass a name containing whitespaces.
 
 ### --strict-transliteration
 >>Some letters are missing which means they are not translatable for this test purposes, then ignore the whole input.
