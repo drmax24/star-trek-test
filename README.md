@@ -51,5 +51,11 @@ KlingonTranslation and Stapi have separate Service classes to solve their specif
 ```app/Services/KlingonTranslationService.php```
 ```app/Services/StapiService.php```
 
+#Notes
+- One character can have multiple races but i only pick first as nothing was specified about this. Outputing csv or picking first is equally ok in uncertain requirements.
+- Same character can be found multiple times in stapi. I pick just first that has species
+- I had to match plaqD symbols and their codes visually. Funny part of the task.
+- Stapi is not very well documented. Ie rest specs go after SOAP and it is easy to overlook. 
+
 ## PS:
 The task was interresting! Among other things it also checks attention and an ability to understand the problem correctly I suppose.
